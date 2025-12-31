@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  au-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: au-portal-bot
+    container_name: au_qec_bot
+    stdin_open: true # Equivalent to -i
+    tty: true        # Equivalent to -t
+    network_mode: host # Uses host network to avoid DNS/Firewall issues with university portal
