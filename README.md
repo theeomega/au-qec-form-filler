@@ -6,7 +6,7 @@
 
 AU QEC Form Filler is an automation tool designed to streamline the process of filling out various forms on the AU (Air University) QEC (Quality Enhancement Cell) portal. It simplifies the task of completing Course QEC forms, Teacher Evaluation forms, and Online Learning Feedback forms.
 
-Note: Version 3.0 (Go Version) is the currently recommended release for performance and stability.
+Note: Version 4.0 (Go Version) is the currently recommended release for performance and stability.
 
 ## Features
 
