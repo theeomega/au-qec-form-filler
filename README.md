@@ -4,59 +4,99 @@
 
 ## Overview
 
-AU QEC Form Filler is a Python script designed to automate the process of filling out various forms on the AU (Air University) QEC (Quality Enhancement Cell) portal. This tool simplifies the task of completing Course QEC forms, Teacher Evaluation forms, and Online Learning Feedback forms.
+AU QEC Form Filler is an automation tool designed to streamline the process of filling out various forms on the AU (Air University) QEC (Quality Enhancement Cell) portal. It simplifies the task of completing Course QEC forms, Teacher Evaluation forms, and Online Learning Feedback forms.
 
-` Note: ` Version 3.0 is currently latest release.
+Note: Version 3.0 (Go Version) is the currently recommended release for performance and stability.
 
 ## Features
 
-- Automated login to the AU QEC portal.
-- Fills out Course QEC forms for all available subjects.
-- Completes Teacher Evaluation forms for all listed teachers.
-- Submits Online Learning Feedback forms for all available courses.
-- Rich terminal output for better user experience.
+- **Automated Login:** Securely logs into the AU QEC portal.
+- **Course QEC Forms:** Automatically fills out forms for all available subjects.
+- **Teacher Evaluations:** Completes evaluation forms for all listed teachers.
+- **Interactive Grading (New):** Assign specific grades (A, B, C, D) to individual teachers via an interactive terminal table.
+- **Online Learning Feedback:** Submits feedback forms for all available courses.
+- **Cross-Platform:** Runs on Windows, Linux, and macOS.
 
-## Executable
+## Quick Start: Download Binaries (No Setup)
 
-You can also download and run the executable file directly without setting up the Python environment. 
+Binaries are available in the Releases section. You can run the tool directly without installing Go, Python, or Docker.
 
-### Download and Run the Executable
+1. Navigate to the [Releases Section](https://github.com/Aw4iskh4n/au-qec-form-filler/releases) on GitHub.
+2. Download the binary matching your operating system:
+   - **Windows:** `qec-windows.exe`
+   - **Linux:** `qec-linux`
+   - **macOS:** `qec-mac`
+3. Run the file:
+   - **Windows:** Double-click `qec-windows.exe`.
+   - **Linux:** Open a terminal, grant permission (`chmod +x qec-linux`), and run (`./qec-linux`).
+   - **macOS:** Open a terminal, grant permission (`chmod +x qec-mac`), and run (`./qec-mac`).
+4. Enter your login credentials when prompted.
 
-1. Download the latest executable file from the [releases](https://github.com/Aw4iskh4n/au-qec-form-filler/releases) page.
-2. Run the executable file (`QEC.exe`).
-3. Enter your login credentials when prompted.
+## Installation and Usage (For Developers)
 
-## Requirements
+If you prefer to run the code from source, you can use Docker, Go, or Python.
 
-- Python 3.6 or higher
-- `requests` library
-- `beautifulsoup4` library
-- `rich` library
+### Option 1: Using Docker (Recommended)
 
-## Installation
+This method requires no dependency installation other than Docker.
 
-1. Clone the repository:
+1. Build and start the container:
     ```bash
-    git clone https://github.com/Aw4iskh4n/au-qec-form-filler.git
+    docker-compose up --build -d
     ```
-2. Navigate to the project directory:
+2. Attach to the interactive terminal:
     ```bash
-    cd au-qec-form-filler
+    docker attach au_qec_bot
     ```
-3. Install the required dependencies:
+
+### Option 2: Running from Source (Go)
+
+Recommended for speed and the new interactive grading features.
+
+**Requirements:**
+- Go 1.21 or higher
+
+**Steps:**
+
+1. Navigate to the `go` directory:
+    ```bash
+    cd go
+    ```
+
+2. Initialize the module and install dependencies:
+    ```bash
+    go mod init au_portal_bot
+    go get [github.com/PuerkitoBio/goquery](https://github.com/PuerkitoBio/goquery)
+    go get [github.com/fatih/color](https://github.com/fatih/color)
+    go get [github.com/jedib0t/go-pretty/v6/table](https://github.com/jedib0t/go-pretty/v6/table)
+    go get [github.com/jedib0t/go-pretty/v6/text](https://github.com/jedib0t/go-pretty/v6/text)
+    go get golang.org/x/term
+    ```
+
+3. Run the application:
+    ```bash
+    go run main.go
+    ```
+
+### Option 3: Running from Source (Python)
+
+The legacy version of the script.
+
+**Requirements:**
+- Python 3.6+
+- Libraries: `requests`, `beautifulsoup4`, `rich`
+
+**Steps:**
+1. Install dependencies:
     ```bash
     pip install -r requirements.txt
     ```
-
-## Usage
-
-1. Run the script:
+2. Run the script:
     ```bash
     python o2mation.py
     ```
-2. Enter your login credentials when prompted.
 
-![Banner](screenshots/filled.png)
+![Filled](screenshots/filled.png)
 
 ## License
 
@@ -65,7 +105,5 @@ This project is [licensed](https://github.com/Aw4iskh4n/au-qec-form-filler/blob/
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
-
-
 
 **Disclaimer:** This tool is intended for educational purposes only. Use it responsibly and at your own risk.
